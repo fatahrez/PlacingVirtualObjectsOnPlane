@@ -88,9 +88,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         boxGeometry.materials = [material]
         
         let boxNode = SCNNode(geometry: boxGeometry)
+        boxNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil )
         
         boxNode.position = SCNVector3(hitResult.worldTransform.columns.3.x,
-                                      hitResult.worldTransform.columns.3.y + Float(boxGeometry.height/2),
+                                      hitResult.worldTransform.columns.3.y + Float(0.5),
                                       hitResult.worldTransform.columns.3.z)
         self.sceneView.scene.rootNode.addChildNode(boxNode)
     }
