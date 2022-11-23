@@ -77,9 +77,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             
             let node = hitResult.node
-            node.physicsBody?.applyForce(SCNVector3(hitResult.worldCoordinates.x,
-                                                    hitResult.worldCoordinates.y,
-                                                    hitResult.worldCoordinates.z),
+            node.physicsBody?.applyForce(SCNVector3(hitResult.worldCoordinates.x * Float(2.0),
+                                                    2.0,
+                                                    hitResult.worldCoordinates.z * Float(2.0)),
                                          asImpulse: true)
         }
         
