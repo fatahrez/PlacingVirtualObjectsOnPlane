@@ -9,10 +9,17 @@ import UIKit
 import SceneKit
 import ARKit
 
+enum BodyType: Int {
+    case box = 1
+    case plane = 2
+}
+
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     var planes = [OverlayPlane]()
+    
+    var boxes = [SCNNode]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +95,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         boxGeometry.materials = [material]
         
         let boxNode = SCNNode(geometry: boxGeometry)
-        boxNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil )
+        boxNode.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
+        boxNode.physicsBody?.categoryBitMask = BodyType.box.rawValue
+        
+        self.boxes.append(boxNode)
         
         boxNode.position = SCNVector3(hitResult.worldTransform.columns.3.x,
                                       hitResult.worldTransform.columns.3.y + Float(0.5),

@@ -24,6 +24,11 @@ class OverlayPlane: SCNNode {
         self.planeGeometry.width = CGFloat(anchor.planeExtent.width)
         self.planeGeometry.height = CGFloat(anchor.planeExtent.height)
         self.position = SCNVector3(anchor.center.x, 0, anchor.center.z)
+        
+        let planeNode = self.childNodes.first!
+        planeNode.physicsBody = SCNPhysicsBody(type: .static,
+                                               shape: SCNPhysicsShape(geometry: self.planeGeometry,
+                                                                      options: nil))
     }
     
     private func setup() {
@@ -35,6 +40,10 @@ class OverlayPlane: SCNNode {
         self.planeGeometry.materials = [material]
         
         let planeNode = SCNNode(geometry: self.planeGeometry)
+        planeNode.physicsBody = SCNPhysicsBody(type: .static,
+                                               shape: SCNPhysicsShape(geometry: self.planeGeometry,
+                                                                      options: nil))
+        planeNode.physicsBody?.categoryBitMask = BodyType.plane.rawValue
         
         planeNode.position = SCNVector3Make(anchor.center.x,
                                             0,
