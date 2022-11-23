@@ -51,7 +51,38 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     private func registerGestureRecognizers() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self,
                                                           action: #selector(tapped))
+        tapGestureRecognizer.numberOfTapsRequired = 1
+        
+        let doubleTappedGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                   action: #selector(doubleTapped))
+        doubleTappedGestureRecognizer.numberOfTapsRequired = 2
+        
+        tapGestureRecognizer.require(toFail: doubleTappedGestureRecognizer)
+        
         self.sceneView.addGestureRecognizer(tapGestureRecognizer)
+        self.sceneView.addGestureRecognizer(doubleTappedGestureRecognizer)
+    }
+    
+    @objc func doubleTapped(recognizer: UITapGestureRecognizer) {
+        
+        let sceneView = recognizer.view as! ARSCNView
+        let touch = recognizer.location(in: sceneView)
+        
+        let hitResults = sceneView.hitTest(touch, options: [:])
+        
+        if !hitResults.isEmpty {
+            
+            guard let hitResult = hitResults.first else {
+                return
+            }
+            
+            let node = hitResult.node
+            node.physicsBody?.applyForce(SCNVector3(hitResult.worldCoordinates.x,
+                                                    hitResult.worldCoordinates.y,
+                                                    hitResult.worldCoordinates.z),
+                                         asImpulse: true)
+        }
+        
     }
     
     @objc func tapped(recognizer: UITapGestureRecognizer) {
