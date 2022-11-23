@@ -13,6 +13,8 @@
 		8343A7B9292E6D8000952405 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8343A7B7292E6D8000952405 /* Main.storyboard */; };
 		8343A7BB292E6D8200952405 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8343A7BA292E6D8200952405 /* Assets.xcassets */; };
 		8343A7BE292E6D8200952405 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8343A7BC292E6D8200952405 /* LaunchScreen.storyboard */; };
+		8343A7C5292E6DD000952405 /* OverlayPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8343A7C4292E6DD000952405 /* OverlayPlane.swift */; };
+		8343A7C7292E753900952405 /* overlay_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = 8343A7C6292E753900952405 /* overlay_grid.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		8343A7B8292E6D8000952405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8343A7BA292E6D8200952405 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8343A7BD292E6D8200952405 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8343A7C4292E6DD000952405 /* OverlayPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPlane.swift; sourceTree = "<group>"; };
+		8343A7C6292E753900952405 /* overlay_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlay_grid.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				8343A7B7292E6D8000952405 /* Main.storyboard */,
 				8343A7BA292E6D8200952405 /* Assets.xcassets */,
 				8343A7BC292E6D8200952405 /* LaunchScreen.storyboard */,
+				8343A7C4292E6DD000952405 /* OverlayPlane.swift */,
+				8343A7C6292E753900952405 /* overlay_grid.png */,
 			);
 			path = PlacingVirtualObjectsOnPlane;
 			sourceTree = "<group>";
@@ -124,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8343A7B4292E6D8000952405 /* art.scnassets in Resources */,
+				8343A7C7292E753900952405 /* overlay_grid.png in Resources */,
 				8343A7BE292E6D8200952405 /* LaunchScreen.storyboard in Resources */,
 				8343A7BB292E6D8200952405 /* Assets.xcassets in Resources */,
 				8343A7B9292E6D8000952405 /* Main.storyboard in Resources */,
@@ -138,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8343A7B6292E6D8000952405 /* ViewController.swift in Sources */,
+				8343A7C5292E6DD000952405 /* OverlayPlane.swift in Sources */,
 				8343A7B2292E6D8000952405 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
